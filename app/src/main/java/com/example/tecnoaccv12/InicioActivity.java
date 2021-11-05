@@ -1,0 +1,83 @@
+package com.example.tecnoaccv12;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TableLayout;
+import android.widget.TextView;
+
+import com.example.tecnoaccv12.baseDatos.ControlBD;
+
+public class InicioActivity extends AppCompatActivity {
+    private TableLayout TableLayoutProductosMasVistos;
+    ControlBD controlBD;
+
+    @Override
+    public void onBackPressed() {
+        final AlertDialog.Builder confirmacion = new AlertDialog.Builder(this);
+        confirmacion.setMessage("Esta seguro que desea salir de la aplicacion?");
+        confirmacion.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+                InicioActivity.super.onDestroy();
+            }
+        });
+        confirmacion.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        AlertDialog alert = confirmacion.create();
+        alert.show();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_inicio);
+        TableLayoutProductosMasVistos = findViewById(R.id.TableLayoutProductosMasVistos);
+        controlBD = new ControlBD(this,null,null,1);
+        controlBD.addProducto();
+        llenarTabla("MasVistos");
+        llenarTabla("Oferta");
+    }
+
+    public void llenarTabla(String status){
+        Cursor fila = controlBD.mostrarProductos(status);
+        while(fila.moveToNext()) {
+
+            View registro = LayoutInflater.from(this).inflate(R.layout.item_table_layout_tecnoacc, null, false);
+            TextView tViewPrecio = registro.findViewById(R.id.textViewPrecio);
+            TextView tViewDescripcion = registro.findViewById(R.id.textViewNombre);
+            tViewDescripcion.setText(fila.getString(3));
+            tViewPrecio.setText("$ " + fila.getString(7));
+            if(fila.moveToNext()) {
+                TextView tViewPrecio2 = registro.findViewById(R.id.textViewPrecio2);
+                TextView tViewDescripcion2 = registro.findViewById(R.id.textViewDescripcion2);
+                tViewDescripcion2.setText(fila.getString(3));
+                tViewPrecio2.setText("$ " + fila.getString(7));
+            }
+            TableLayoutProductosMasVistos.addView(registro);
+        }
+    }
+    public void mostrarCarrito(View view){
+
+    }
+    public void mostrarAjustes(View view){
+        Intent UsuarioActivity = new Intent(this, UsuarioActivity.class);
+        startActivity(UsuarioActivity);
+    }
+    public void mostrarProducto(View view){
+        Intent ProductoActivity = new Intent(this, ProductoActivity.class);
+        startActivity(ProductoActivity);
+    }
+}
