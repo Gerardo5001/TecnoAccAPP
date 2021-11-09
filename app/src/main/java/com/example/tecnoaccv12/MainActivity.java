@@ -48,17 +48,22 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Correo no valido", Toast.LENGTH_SHORT).show();
         }
     }
-    public void registrase(View view){
+    public void registrase(View view)   {
         if(ValidarMail(correo.getText().toString()) && contraseña.getText().toString()!=null){
             Usuario usuario = controlBD.seachUsuario(correo.getText().toString());
             if (usuario!=null) {
                 Toast.makeText(this, "Este correo ya esta registrado.", Toast.LENGTH_SHORT).show();
             }else {
-                Usuario user = new Usuario(correo.getText().toString(), contraseña.getText().toString());
-                controlBD.addUsuario(user);
-                Intent InicioActivity = new Intent(this, InicioActivity.class);
-                startActivity(InicioActivity);
-                Toast.makeText(this, "Registro correcto.", Toast.LENGTH_SHORT).show();
+                EditText contraConfir = (EditText)findViewById(R.id.editTextTextPasswordConfir);
+                if(contraseña.getText().toString().equals(contraConfir.getText().toString())){
+                    Usuario user = new Usuario(correo.getText().toString(), contraseña.getText().toString());
+                    controlBD.addUsuario(user);
+                    Intent InicioActivity = new Intent(this, InicioActivity.class);
+                    startActivity(InicioActivity);
+                    Toast.makeText(this, "Registro correcto.", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(this,"Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                }
             }
         }else {
             Toast.makeText(this, "Correo no valido.", Toast.LENGTH_SHORT).show();
@@ -71,5 +76,10 @@ public class MainActivity extends AppCompatActivity {
         Matcher mather = pattern.matcher(email);
         return mather.find();
     }
-
+    public void textRegistroOn(View view){
+        EditText usuario = (EditText)findViewById(R.id.editTextName);
+        usuario.setVisibility(View.VISIBLE);
+        EditText passwordConfir = (EditText)findViewById(R.id.editTextTextPasswordConfir);
+        passwordConfir.setVisibility(View.VISIBLE);
+    }
 }
