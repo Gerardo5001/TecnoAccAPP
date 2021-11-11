@@ -27,7 +27,8 @@ public class ControlBD extends SQLiteOpenHelper {
         String CREATE_TABLE_USUARIO = "CREATE TABLE " + "usuario" +
                 " (" + "_id" + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "_correo" + " TEXT, " +
-                "_password" + " TEXT " +
+                "_password" + " TEXT, " +
+                "_usuario" + " TEXT " +
                 ")";
         String CREATE_TABLE_PRODUCTOS = "CREATE TABLE " + "productos" +
                 " (" + "_id" + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -68,6 +69,7 @@ public class ControlBD extends SQLiteOpenHelper {
         // Agregamos cada dato requerido de nuestra columna.
         values.put("_correo", user.get_correo());
         values.put("_password",user.get_password());
+        values.put("_usuario",user.get_usuario());
         // Obtenemos el objeto de la base de datos.
         SQLiteDatabase database = this.getWritableDatabase();
         // Insertamos nuestro registro en la tabla.
@@ -92,8 +94,10 @@ public class ControlBD extends SQLiteOpenHelper {
             user.set_id(Integer.parseInt(cursor.getString(0)));
             // Obtenemos el correo con el segundo valor del string.
             user.set_correo(cursor.getString(1));
-            // Obtenemos la direccion con el tercer valor del string.
+            // Obtenemos el password con el tercer valor del string.
             user.set_password(cursor.getString(2));
+            // Obtenemos el nombre del usuario con el tercer valor del string.
+            user.set_usuario(cursor.getString(3));
             // Cerramos el cursor.
             cursor.close();
         }

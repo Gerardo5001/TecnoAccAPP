@@ -5,15 +5,25 @@ public class Usuario {
     private int _id;
     private String _correo;
     private String _password;
+    private String _usuario;
+
+    public String get_usuario() {
+        return _usuario;
+    }
+
+    public void set_usuario(String _usuario) {
+        this._usuario = _usuario;
+    }
 
     public Usuario(int _id, String _correo, String _password){
         this._id = _id;
         this._correo = _correo;
         this._password = _password;
     }
-    public  Usuario(String _correo, String _password){
+    public  Usuario(String _correo, String _password, String _usuario){
         this._correo = _correo;
         this._password = _password;
+        this._usuario = _usuario;
     }
     public Usuario(){}
 

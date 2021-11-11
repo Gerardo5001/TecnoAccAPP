@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tecnoaccv12.baseDatos.ControlBD;
@@ -49,24 +51,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void registrase(View view)   {
-        if(ValidarMail(correo.getText().toString()) && contraseña.getText().toString()!=null){
-            Usuario usuario = controlBD.seachUsuario(correo.getText().toString());
-            if (usuario!=null) {
-                Toast.makeText(this, "Este correo ya esta registrado.", Toast.LENGTH_SHORT).show();
-            }else {
-                EditText contraConfir = (EditText)findViewById(R.id.editTextTextPasswordConfir);
-                if(contraseña.getText().toString().equals(contraConfir.getText().toString())){
-                    Usuario user = new Usuario(correo.getText().toString(), contraseña.getText().toString());
-                    controlBD.addUsuario(user);
-                    Intent InicioActivity = new Intent(this, InicioActivity.class);
-                    startActivity(InicioActivity);
-                    Toast.makeText(this, "Registro correcto.", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(this,"Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+        EditText usuarioName = (EditText)findViewById(R.id.editTextName);
+        if(usuarioName.getText().toString().equals("")){
+            Toast.makeText(this, "Ingrese un nombre de usuario.", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            if (ValidarMail(correo.getText().toString()) && contraseña.getText().toString() != null) {
+                Usuario usuario = controlBD.seachUsuario(correo.getText().toString());
+                if (usuario != null) {
+                    Toast.makeText(this, "Este correo ya esta registrado.", Toast.LENGTH_SHORT).show();
+                } else {
+                    EditText contraConfir = (EditText) findViewById(R.id.editTextTextPasswordConfir);
+                    if (contraseña.getText().toString().equals(contraConfir.getText().toString())) {
+                        Usuario user = new Usuario(correo.getText().toString(), contraseña.getText().toString(), usuarioName.getText().toString());
+                        controlBD.addUsuario(user);
+                        Intent InicioActivity = new Intent(this, InicioActivity.class);
+                        startActivity(InicioActivity);
+                        Toast.makeText(this, "Registro correcto.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                    }
                 }
+            } else {
+                Toast.makeText(this, "Correo no valido.", Toast.LENGTH_SHORT).show();
             }
-        }else {
-            Toast.makeText(this, "Correo no valido.", Toast.LENGTH_SHORT).show();
         }
     }
     public static boolean ValidarMail(String email) {
@@ -81,5 +89,16 @@ public class MainActivity extends AppCompatActivity {
         usuario.setVisibility(View.VISIBLE);
         EditText passwordConfir = (EditText)findViewById(R.id.editTextTextPasswordConfir);
         passwordConfir.setVisibility(View.VISIBLE);
+        Button btnRegistrarse = (Button)findViewById(R.id.buttonRegistrarse);
+        btnRegistrarse.setVisibility(View.VISIBLE);
+        Button btnAcceder = (Button)findViewById(R.id.buttonAcceder);
+        btnAcceder.setVisibility(View.INVISIBLE);
+        TextView text1 = (TextView)findViewById(R.id.textView4); //6 9
+        text1.setVisibility(View.INVISIBLE);
+        TextView text2 = (TextView)findViewById(R.id.textView6); //6 9
+        text2.setVisibility(View.INVISIBLE);
+        TextView text3 = (TextView)findViewById(R.id.textView9); //6 9
+        text3.setVisibility(View.INVISIBLE);
+
     }
 }

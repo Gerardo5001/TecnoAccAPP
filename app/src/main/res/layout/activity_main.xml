@@ -54,8 +54,7 @@
         android:onClick="acceder"
         android:text="Acceder"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
-        app:layout_constraintStart_toEndOf="@+id/buttonRegistrarse"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPasswordConfir" />
 
     <Button
@@ -66,8 +65,9 @@
         android:fontFamily="@font/open_sans"
         android:onClick="registrase"
         android:text="Registrarte"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPasswordConfir" />
 
@@ -75,36 +75,36 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:text="¿Eres nuevo? Da clic "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegistrarse" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAcceder" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="36dp"
         android:layout_height="19dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:onClick="textRegistroOn"
         android:text="aqui!"
         android:textColor="#3E5ED1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegistrarse" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAcceder" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:text="para registrarte"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegistrarse" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAcceder" />
 
     <EditText
         android:id="@+id/editTextName"
