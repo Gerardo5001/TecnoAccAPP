@@ -16,6 +16,7 @@ import com.example.tecnoaccv12.baseDatos.ControlBD;
 
 public class InicioActivity extends AppCompatActivity {
     private TableLayout TableLayoutProductosMasVistos;
+    private TableLayout TableLayoutProductosPromocion;
     ControlBD controlBD;
 
     @Override
@@ -45,13 +46,13 @@ public class InicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
         TableLayoutProductosMasVistos = findViewById(R.id.TableLayoutProductosMasVistos);
+        TableLayoutProductosPromocion = findViewById(R.id.TableLayoutProductosPromocion);
         controlBD = new ControlBD(this,null,null,1);
-        controlBD.addProducto();
-        llenarTabla("MasVistos");
-        llenarTabla("Oferta");
+        llenarTabla("MasVistos", TableLayoutProductosMasVistos);
+        llenarTabla("Oferta", TableLayoutProductosPromocion);
     }
 
-    public void llenarTabla(String status){
+    public void llenarTabla(String status, TableLayout tabla){
         Cursor fila = controlBD.mostrarProductos(status);
         while(fila.moveToNext()) {
 
@@ -66,7 +67,7 @@ public class InicioActivity extends AppCompatActivity {
                 tViewDescripcion2.setText(fila.getString(3));
                 tViewPrecio2.setText("$ " + fila.getString(7));
             }
-            TableLayoutProductosMasVistos.addView(registro);
+            tabla.addView(registro);
         }
     }
     public void mostrarCarrito(View view){

@@ -14,7 +14,7 @@ import java.util.List;
 public class ControlBD extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "TecnoAccBD2.bd";
+    private static final String DATABASE_NAME = "TecnoAccBD3.bd";
 
     public ControlBD(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
