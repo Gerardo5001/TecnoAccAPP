@@ -27,7 +27,10 @@ public class InicioActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 finish();
-                InicioActivity.super.onDestroy();
+                Intent cierre = new Intent(Intent.ACTION_MAIN);
+                cierre.addCategory(Intent.CATEGORY_HOME);
+                cierre.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(cierre);
             }
         });
         confirmacion.setNegativeButton("No", new DialogInterface.OnClickListener() {

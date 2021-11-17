@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText correo;
     private EditText contraseña;
+    private boolean estatusForm=false;
     ControlBD controlBD;
 
     @Override
@@ -99,6 +100,28 @@ public class MainActivity extends AppCompatActivity {
         text2.setVisibility(View.INVISIBLE);
         TextView text3 = (TextView)findViewById(R.id.textView9); //6 9
         text3.setVisibility(View.INVISIBLE);
-
+        estatusForm = true;
+    }
+    public void onBackPressed(){
+        if(estatusForm){
+            EditText usuario = (EditText)findViewById(R.id.editTextName);
+            usuario.setVisibility(View.INVISIBLE);
+            EditText passwordConfir = (EditText)findViewById(R.id.editTextTextPasswordConfir);
+            passwordConfir.setVisibility(View.INVISIBLE);
+            Button btnRegistrarse = (Button)findViewById(R.id.buttonRegistrarse);
+            btnRegistrarse.setVisibility(View.INVISIBLE);
+            Button btnAcceder = (Button)findViewById(R.id.buttonAcceder);
+            btnAcceder.setVisibility(View.VISIBLE);
+            TextView text1 = (TextView)findViewById(R.id.textView4); //6 9
+            text1.setVisibility(View.VISIBLE);
+            TextView text2 = (TextView)findViewById(R.id.textView6); //6 9
+            text2.setVisibility(View.VISIBLE);
+            TextView text3 = (TextView)findViewById(R.id.textView9); //6 9
+            text3.setVisibility(View.VISIBLE);
+            estatusForm = false;
+        }
+        else{
+            finish();
+        }
     }
 }
