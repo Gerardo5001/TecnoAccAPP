@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         contraseña = (EditText)findViewById(R.id.editTextTextPassword2);
         controlBD = new ControlBD(this, null,null,1);
     }
+    protected void onStop() {
+        super.onStop();
+    }
     public void acceder(View view){
         if(ValidarMail(correo.getText().toString())){
 
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 if(user.get_password().equals(contraseña.getText().toString())){
                     Intent InicioActivity = new Intent(this, InicioActivity.class);
                     startActivity(InicioActivity);
+                    contraseña.setText("");
                 }else {
                     Toast.makeText(this, "Contraseña no valida", Toast.LENGTH_SHORT).show();
                 }
@@ -69,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
                         Intent InicioActivity = new Intent(this, InicioActivity.class);
                         startActivity(InicioActivity);
                         Toast.makeText(this, "Registro correcto.", Toast.LENGTH_SHORT).show();
+                        usuarioName.setText("");
+                        contraseña.setText("");
+                        contraConfir.setText("");
                     } else {
                         Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
                     }
