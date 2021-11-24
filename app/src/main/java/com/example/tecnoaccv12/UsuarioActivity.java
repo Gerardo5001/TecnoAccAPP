@@ -37,12 +37,18 @@ public class UsuarioActivity extends AppCompatActivity {
     public void actualizarDatos(View view){
         if (usuario.get_password().equals(password.getText().toString())){
             if(passwordNew.getText().toString().equals(passwordNewConfir.getText().toString())){
-                if(controlBD.actualizarUsuario(usuario.get_correo(),passwordNew.getText().toString())) {
-                    usuario = controlBD.seachUsuario(correo);
-                    Toast.makeText(this, "Se actualizo su contraseña", Toast.LENGTH_SHORT).show();
+                if(passwordNew.getText().toString().equals("")){
+                    Toast.makeText(this, "No se ha ingreso nueva contraseña", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (controlBD.actualizarUsuario(usuario.get_correo(), passwordNew.getText().toString())) {
+                        usuario = controlBD.seachUsuario(correo);
+                        Toast.makeText(this, "Se actualizo su contraseña", Toast.LENGTH_SHORT).show();
+                        password.setText("");
+                        passwordNew.setText("");
+                        passwordNewConfir.setText("");
+                    } else
+                        Toast.makeText(this, "Ocurrio un error, verifique", Toast.LENGTH_SHORT).show();
                 }
-                else
-                    Toast.makeText(this, "Ocurrio un error, verifique", Toast.LENGTH_SHORT).show();
             }else{
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
             }
