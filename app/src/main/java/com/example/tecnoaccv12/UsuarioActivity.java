@@ -10,6 +10,8 @@ import android.widget.Toast;
 import com.example.tecnoaccv12.baseDatos.ControlBD;
 import com.example.tecnoaccv12.baseDatos.Usuario;
 
+//TODO: Rectificar los labelText para que se visualicen completos
+//TODO: Agregar funcion de cambio de imagen
 
 public class UsuarioActivity extends AppCompatActivity {
     ControlBD controlBD;

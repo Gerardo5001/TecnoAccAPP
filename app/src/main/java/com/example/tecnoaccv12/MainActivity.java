@@ -16,6 +16,8 @@ import com.example.tecnoaccv12.baseDatos.Usuario;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//TODO: Agregar funcionalidad a barra de busqueda
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText correo;

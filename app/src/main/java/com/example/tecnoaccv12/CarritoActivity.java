@@ -15,6 +15,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.tecnoaccv12.databinding.ActivityCarritoBinding;
 
+//TODO: Agregar funcionalidad al carrito
+
 public class CarritoActivity extends AppCompatActivity {
 
     @Override
@@ -23,3 +25,4 @@ public class CarritoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_carrito);
     }
 }
+

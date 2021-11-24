@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO: Unificar Bases de datos para APP, WEB y DESK
+
 public class ControlBD extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;

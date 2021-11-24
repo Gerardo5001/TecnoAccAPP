@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+//TODO:Agrgar funcionalidad a btn Agregar carrito -> Depende de funcion carrito
+//TODO: Agregar funcionalidad a btn Comprar ahora -> Depende de funcion carrito
+//TODO: La pantalla despliege el producto seleccionado
 
 public class ProductoActivity extends AppCompatActivity {
 
