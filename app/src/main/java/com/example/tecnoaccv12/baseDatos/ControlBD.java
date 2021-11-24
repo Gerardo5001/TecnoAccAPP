@@ -110,6 +110,19 @@ public class ControlBD extends SQLiteOpenHelper {
         // Regresamos el objeto cliente
         return user;
     }
+    public boolean actualizarUsuario(String correo, String newPass){
+        try {
+            String query = "UPDATE " + "usuario" + " SET _password = " + "\"" + newPass + "\"" + "WHERE _correo = " + "\"" + correo + "\"";
+            // Obtenemos el objeto de la base de datos.
+            SQLiteDatabase database = this.getWritableDatabase();
+            // Realizamos la búsqueda.
+            database.execSQL(query);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     public Cursor mostrarProductos(String status){
         List<Producto> productos = new ArrayList<>();

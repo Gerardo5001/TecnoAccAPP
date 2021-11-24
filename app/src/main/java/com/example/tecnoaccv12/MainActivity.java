@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             if(user!=null){
                 if(user.get_password().equals(contraseña.getText().toString())){
                     Intent InicioActivity = new Intent(this, InicioActivity.class);
+                    InicioActivity.putExtra("correo",user.get_correo());
                     startActivity(InicioActivity);
                     contraseña.setText("");
                 }else {
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                         Usuario user = new Usuario(correo.getText().toString(), contraseña.getText().toString(), usuarioName.getText().toString());
                         controlBD.addUsuario(user);
                         Intent InicioActivity = new Intent(this, InicioActivity.class);
+                        InicioActivity.putExtra("correo",user.get_correo());
                         startActivity(InicioActivity);
                         Toast.makeText(this, "Registro correcto.", Toast.LENGTH_SHORT).show();
                         usuarioName.setText("");

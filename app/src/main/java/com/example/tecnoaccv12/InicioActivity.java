@@ -77,7 +77,9 @@ public class InicioActivity extends AppCompatActivity {
 
     }
     public void mostrarAjustes(View view){
+        Bundle datos = getIntent().getExtras();
         Intent UsuarioActivity = new Intent(this, UsuarioActivity.class);
+        UsuarioActivity.putExtra("correo", datos.getString("correo"));
         startActivity(UsuarioActivity);
     }
     public void mostrarProducto(View view){
