@@ -54,7 +54,7 @@ public class InicioActivity extends AppCompatActivity {
         TableLayoutProductosMasVistos = findViewById(R.id.TableLayoutProductosMasVistos);
         TableLayoutProductosPromocion = findViewById(R.id.TableLayoutProductosPromocion);
         controlBD = new ControlBD(this,null,null,1);
-        //controlBD.addProducto();
+        controlBD.addProducto();
         llenarTabla("MasVistos", TableLayoutProductosMasVistos);
         llenarTabla("Oferta", TableLayoutProductosPromocion);
     }
