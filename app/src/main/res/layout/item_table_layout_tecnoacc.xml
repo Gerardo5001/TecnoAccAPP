@@ -13,11 +13,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageProducto"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:onClick="mostrarProducto"
-            app:srcCompat="@drawable/prueba" />
+            android:onClick="mostrarProducto" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -48,11 +47,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageImagenProducto2"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:onClick="mostrarProducto"
-            app:srcCompat="@drawable/prueba" />
+            android:onClick="mostrarProducto" />
 
         <ScrollView
             android:layout_width="match_parent"

@@ -18,9 +18,11 @@
         app:srcCompat="@drawable/icon_user" />
 
     <LinearLayout
-        android:layout_width="410dp"
+        android:layout_width="400dp"
         android:layout_height="311dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="1dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

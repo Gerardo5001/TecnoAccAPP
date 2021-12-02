@@ -18,8 +18,7 @@
             <ImageView
                 android:id="@+id/imageViewProducto"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/prueba" />
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -36,8 +35,7 @@
                     android:id="@+id/textViewNombre"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cargador Tipo C Carga Rápida Usb Datos Celular 1hora" />
+                    android:layout_weight="1" />
 
             </LinearLayout>
 
@@ -58,8 +56,7 @@
                     android:id="@+id/textViewModelo"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="GAR080" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
@@ -77,8 +74,7 @@
                     android:id="@+id/textViewDescripcion"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="ESPECIFICACIONES TÉCNICAS DEL PRODUCTO: • Conector de entrada: Clavija • Estrada: CA 100-240V – 50/60Hz 0.4A • Salida: CC 5V – 2.0A 10W • Interfaz: Una salida de USB" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
@@ -96,8 +92,7 @@
                     android:id="@+id/textViewNumParte"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="GAR080" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
@@ -115,8 +110,7 @@
                     android:id="@+id/textViewPrecioProducto"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="3260" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
             <Button

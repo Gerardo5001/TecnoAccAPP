@@ -16,11 +16,6 @@
             android:name=".ProductoActivity"
             android:exported="true" />
         <activity
-            android:name=".CarritoActivity"
-            android:exported="true"
-            android:label="@string/title_activity_carrito"
-            android:theme="@style/NoActionBar" />
-        <activity
             android:name=".UsuarioActivity"
             android:exported="true" />
         <activity

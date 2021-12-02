@@ -5,11 +5,13 @@
       <map>
         <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2203125" />
         <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
+        <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/layout/activity_carrito.xml" value="0.20416666666666666" />
         <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/layout/activity_carro_compras.xml" value="0.33" />
         <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/layout/activity_inicio.xml" value="0.33" />
         <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/layout/activity_producto.xml" value="0.23596938775510204" />
         <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/layout/activity_usuario.xml" value="0.33" />
+        <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/layout/content_carrito.xml" value="0.20416666666666666" />
         <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/layout/item_menu_layout_tecnoacc.xml" value="0.20416666666666666" />
         <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/layout/item_table_layout_tecnoacc.xml" value="0.25" />
         <entry key="..\:/Proyectos Android/TecnoAccV12/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />

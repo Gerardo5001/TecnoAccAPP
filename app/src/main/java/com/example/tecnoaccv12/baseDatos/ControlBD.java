@@ -136,17 +136,82 @@ public class ControlBD extends SQLiteOpenHelper {
         return filas;
     }
     public void addProducto(){
+        SQLiteDatabase database = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("_nombre","Audífonos in-ear inalámbricos");
-        values.put("_modelo","FreeBuds");
+        values.put("_nombre","Audífonos Veeela A7s negro");
+        values.put("_modelo","A7s negro");
         values.put("_descripcion","En la calle, en el colectivo o en la oficina, ten siempre a mano tus audífonos Huawei y ¡escápate de la rutina por un rato! Vas a poder disfrutar de la música que más te gusta y de tus podcasts favoritos cuando quieras y donde quieras.");
-        values.put("_numParte","T0003");
+        values.put("_numParte","a7s");
         values.put("_categoria","Audifonos");
         values.put("_cantidad","100");
-        values.put("_precio","3260");
-        values.put("_estatus", "Oferta");
-        SQLiteDatabase database = this.getWritableDatabase();
+        values.put("_precio","188");
+        values.put("_estatus", "MasVistos"); // MasVistos - Oferta
         database.insert("productos", null, values);
+        values.clear();
+
+        values.put("_nombre","Funda Acrigel Samsung Galaxy iPhone Huawei Xiaomi Oleo");
+        values.put("_modelo","oem");
+        values.put("_descripcion","Funda con orilla de TPU y parte trasera rígida.");
+        values.put("_numParte","oem");
+        values.put("_categoria","Fundas");
+        values.put("_cantidad","100");
+        values.put("_precio","69");
+        values.put("_estatus", "MasVistos"); // MasVistos - Oferta
+        database.insert("productos", null, values);
+        values.clear();
+
+        values.put("_nombre","Funda Para Xiaomi Redmi Note 8/ Note 8 Pro/note 9/ Note 9pro");
+        values.put("_modelo","niunu");
+        values.put("_descripcion","Hay demasiados modelos para tomar fotografías.");
+        values.put("_numParte","niunu");
+        values.put("_categoria","Fundas");
+        values.put("_cantidad","100");
+        values.put("_precio","105");
+        values.put("_estatus", "MasVistos"); // MasVistos - Oferta
+        database.insert("productos", null, values);
+        values.clear();
+
+        values.put("_nombre","Funda + Protector De Pantalla De Vidrio Templado P/samsung");
+        values.put("_modelo","Tuyue");
+        values.put("_descripcion","For galaxy Note 20");
+        values.put("_numParte","tuyue");
+        values.put("_categoria","Fundas");
+        values.put("_cantidad","100");
+        values.put("_precio","202");
+        values.put("_estatus", "Oferta"); // MasVistos - Oferta
+        database.insert("productos", null, values);
+        values.clear();
+
         database.close();
+
+    }
+    public Producto buscarProducto(String numParte){
+        // Definimos el query de búsqueda.
+        String query = "SELECT * FROM " + "productos" + " WHERE " + "_numParte" + "=" + "\"" + numParte +"\"";
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor = database.rawQuery(query, null);
+        Producto producto = new Producto();
+        // Verificamos si se encontró algún registro.
+        if(cursor.moveToFirst()){
+            producto.setId(Integer.parseInt(cursor.getString(0)));
+            producto.setNombre(cursor.getString(1));
+            producto.setModelo(cursor.getString(2));
+            producto.setDescripcion(cursor.getString(3));
+            producto.setNumParte(cursor.getString(4));
+            producto.setCategoria(cursor.getString(5));
+            producto.setCantidad(Integer.parseInt(cursor.getString(6)));
+            producto.setPrecio(Double.parseDouble(cursor.getString(7)));
+            producto.setEstatus(cursor.getString(8));
+            // Cerramos el cursor.
+            cursor.close();
+        }
+        else {
+            producto = null;
+        }
+        // Cerramos la base de datos.
+        database.close();
+
+        // Regresamos el objeto cliente
+        return producto;
     }
 }

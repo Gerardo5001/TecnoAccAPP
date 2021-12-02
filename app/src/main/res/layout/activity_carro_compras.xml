@@ -18,8 +18,7 @@
             <ImageView
                 android:id="@+id/imageViewProducto"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/prueba" />
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:layout_width="match_parent"
